@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Np7-I1-4tw">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Info View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="UserInfoViewController" id="BYZ-38-t0r" customClass="UserInfoViewController" customModule="MyDataMachineTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="UserInfoView" customModule="MyDataMachineTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zwI-rN-auN">
+                                <rect key="frame" x="1" y="104" width="391" height="713"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zwI-rN-auN" secondAttribute="trailing" constant="1" id="G9b-co-seR"/>
+                            <constraint firstItem="zwI-rN-auN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="1" id="jAM-zs-MrL"/>
+                            <constraint firstItem="zwI-rN-auN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="1" id="rTN-Ly-uUZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zwI-rN-auN" secondAttribute="bottom" constant="1" id="zWK-6d-WkQ"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="userTableView" destination="zwI-rN-auN" id="Za5-Q9-ZE3"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="WBE-VS-Pbd"/>
+                    <connections>
+                        <outlet property="userInfoView" destination="8bC-Xf-vdC" id="SS3-K6-s92"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318.32061068702291" y="-68.309859154929583"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="NUR-KU-JKp">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="S9U-go-5pW" customClass="DetailViewController" customModule="MyDataMachineTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UlQ-Tl-90l" customClass="DetailView" customModule="MyDataMachineTest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dHW-Og-QnV">
+                                <rect key="frame" x="8" y="101" width="377" height="76"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNF-o3-Kxa">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="18.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dol-Yy-g0K">
+                                        <rect key="frame" x="0.0" y="28.666666666666657" width="377" height="18.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQh-v4-0ER">
+                                        <rect key="frame" x="0.0" y="57.333333333333336" width="377" height="18.666666666666664"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KdA-8q-QPu">
+                                <rect key="frame" x="8" y="197" width="377" height="130"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="sVO-62-1zH"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vbr-fO-94d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KdA-8q-QPu" firstAttribute="leading" secondItem="vbr-fO-94d" secondAttribute="leading" constant="8" id="65C-Ug-ds6"/>
+                            <constraint firstItem="dHW-Og-QnV" firstAttribute="leading" secondItem="vbr-fO-94d" secondAttribute="leading" constant="8" id="Iac-xA-Wf2"/>
+                            <constraint firstItem="dHW-Og-QnV" firstAttribute="top" secondItem="vbr-fO-94d" secondAttribute="top" constant="42" id="agC-ZH-MDL"/>
+                            <constraint firstItem="vbr-fO-94d" firstAttribute="trailing" secondItem="KdA-8q-QPu" secondAttribute="trailing" constant="8" id="eMT-GQ-LxE"/>
+                            <constraint firstItem="KdA-8q-QPu" firstAttribute="top" secondItem="dHW-Og-QnV" secondAttribute="bottom" constant="20" id="hMt-ap-wHJ"/>
+                            <constraint firstItem="vbr-fO-94d" firstAttribute="trailing" secondItem="dHW-Og-QnV" secondAttribute="trailing" constant="8" id="pzw-sR-svf"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="bodyTextView" destination="KdA-8q-QPu" id="wEK-GB-Vu1"/>
+                            <outlet property="idLabel" destination="MQh-v4-0ER" id="qwm-BK-9Nj"/>
+                            <outlet property="titleLabel" destination="UNF-o3-Kxa" id="zMz-Ay-pIQ"/>
+                            <outlet property="userIdLabel" destination="Dol-Yy-g0K" id="r60-iB-Ae9"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="detailView" destination="UlQ-Tl-90l" id="f6e-hK-kW7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r6j-d2-9bv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1014.5038167938931" y="-68.309859154929583"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lEH-mS-zoI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Np7-I1-4tw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9sN-vb-DXn">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kUM-4K-Guo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ul-yx-1vR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-608.39694656488552" y="-68.309859154929583"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

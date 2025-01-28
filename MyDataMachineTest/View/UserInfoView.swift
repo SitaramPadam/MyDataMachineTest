@@ -22,6 +22,9 @@ class UserInfoView: UIView {
     let spinner = UIActivityIndicatorView(style: .medium)
     var delegate: userInfoViewDelegate? = nil
     var viewModel:UserInfoViewModel = UserInfoViewModel()
+    var concurrentQueue = DispatchQueue(label: "tableData.concurrent.queue", attributes: .concurrent)
+    
+
     
     func setUPUI(){
         self.userTableView.delegate   = self
@@ -45,10 +48,18 @@ class UserInfoView: UIView {
     }
     
     func updateTableView(userInfoModel: [UserInfo]?){
-        if userInfoModel!.count > 0 {
-            userInfoData = userInfoModel!
+        
+        concurrentQueue.async {
+            // Perform the data request and JSON decoding on the background queue.
+            if userInfoModel!.count > 0 {
+                self.userInfoData = userInfoModel!
+               // print("One")
+            }
+            
             DispatchQueue.main.async {
+                /// Access and reload the UI back on the main queue.
                 self.userTableView.reloadData()
+               // print("Two")
             }
         }
     }
@@ -70,7 +81,11 @@ extension UserInfoView :UITableViewDelegate,UITableViewDataSource {
         if !isLoading && indexPath.row == userInfoData.count - 1 {
             self.spinner.startAnimating()
             self.pageno = self.pageno + 1
-            viewModel.getUserApiData(limit: 10, pageNo: self.pageno)
+            let concurrentQue = DispatchQueue(label: "com.concurent.queue",attributes: .concurrent)
+            concurrentQue.async {
+                self.viewModel.getUserApiData(limit: 10, pageNo: self.pageno)
+            }
+            
             viewModel.delegate = self
         }
         
@@ -96,15 +111,32 @@ extension UserInfoView :UITableViewDelegate,UITableViewDataSource {
 extension UserInfoView:UserInfoViewModelDelegate  {
     
     func userDataDisplay(userInfoModel: [UserInfo]?) {
-        
-        if userInfoModel!.count > 0 {
-            isLoading = false
-            self.userInfoData.append(contentsOf: userInfoModel ?? [])
-
-            DispatchQueue.main.async {
-                self.spinner.stopAnimating()
-                self.userTableView.reloadData()
+        let concurrentQueuePagination = DispatchQueue(label: "pagination.concurrent.queue", attributes: .concurrent)
+        concurrentQueuePagination.async {
+            // Perform the data request and JSON decoding on the background queue.
+            if userInfoModel!.count > 0 {
+                self.isLoading = false
+                self.userInfoData.append(contentsOf: userInfoModel ?? [])
+              //  print("Three")
+                
+                DispatchQueue.main.async {
+                    /// Access and reload the UI back on the main queue.
+                    self.spinner.stopAnimating()
+                    self.userTableView.reloadData()
+                   // print("Four")
+                }
             }
         }
+        
+        
+//        if userInfoModel!.count > 0 {
+//            isLoading = false
+//            self.userInfoData.append(contentsOf: userInfoModel ?? [])
+//
+//            DispatchQueue.main.async {
+//                self.spinner.stopAnimating()
+//                self.userTableView.reloadData()
+//            }
+//        }
     }
 }

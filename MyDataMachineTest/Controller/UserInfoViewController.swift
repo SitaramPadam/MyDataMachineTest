@@ -21,10 +21,29 @@ class UserInfoViewController: UIViewController  {
         userInfoView.setUPUI()
         userInfoView.delegate = self
         viewModel.delegate    = self
-        viewModel.getUserApiData(limit: 10, pageNo: 1)
+        
+        let concurrentQue = DispatchQueue(label: "com.concurent.queue",attributes: .concurrent)
+        concurrentQue.async {
+            self.viewModel.getUserApiData(limit: 10, pageNo: 1)
+        }
     }
 }
 
+
+func multiThreadingConcepts(){
+    
+//    let concurrentQueue = DispatchQueue(label: "swiftlee.concurrent.queue", attributes: .concurrent)
+//
+//    concurrentQueue.async {
+//        // Perform the data request and JSON decoding on the background queue.
+//        fetchData()
+//
+//        DispatchQueue.main.async {
+//            /// Access and reload the UI back on the main queue.
+//            tableView.reloadData()
+//        }
+//    }
+}
 
 extension UserInfoViewController:UserInfoViewModelDelegate,userInfoViewDelegate  {
     func navigateToNextView(details: UserInfo?) {
